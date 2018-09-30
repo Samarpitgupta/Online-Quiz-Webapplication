@@ -21,12 +21,8 @@ public class TestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	 PreparedStatement stmt = null;
 	  Connection con = null;
-	
-	  
-	  @Override
-		public void init() throws ServletException {
-
-			
+	   @Override
+		public void init() throws ServletException {	
 			try {
 				con=(Connection) getServletContext().getAttribute("connection");	
 				stmt = con.prepareStatement("Select * from java");
@@ -36,8 +32,6 @@ public class TestServlet extends HttpServlet {
 			}
 
 	  }
-			   		
-	  
 	  @Override
 	public void destroy() {
 		try {
@@ -60,8 +54,6 @@ public class TestServlet extends HttpServlet {
 				
 		   		request.setAttribute("listofquestions", listofquestions);
 		   		request.getRequestDispatcher("Test1.jsp").forward(request, response);
-		   		
-		   		
-		
+	
 }
 }

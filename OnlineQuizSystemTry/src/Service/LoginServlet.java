@@ -28,10 +28,7 @@ public class LoginServlet extends HttpServlet {
 	java.sql.Connection con=null;
 	   PreparedStatement stmt=null;
 	   ResultSet rs=null;
-	  
-	   
-	   
-	   
+
 	   @Override
 		public void init() throws ServletException {
 
@@ -44,8 +41,6 @@ public class LoginServlet extends HttpServlet {
 			}catch (SQLException e) {
 				e.printStackTrace();
 			}
-		
-			
 		}
 		
 	   public void destroy() {
@@ -57,8 +52,6 @@ public class LoginServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		
-
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ResultSet rs = null;		
@@ -80,13 +73,12 @@ if(rs.next())
 	session.setAttribute("username", username);
 	session.setAttribute("password", password);
 	response.sendRedirect(response.encodeRedirectURL("ChoseLang.jsp"));
-	}
+}
 			else
 			{
-				RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
 			request.setAttribute("loginMessage", "Invalid username/password");
-			rd.forward(request,response);			
-				
+			rd.forward(request,response);					
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
