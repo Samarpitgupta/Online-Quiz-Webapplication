@@ -1,0 +1,185 @@
+﻿create table sql(qid number primary key,ques varchar(900), op1 varchar(200), op2 varchar(200), op3 varchar(200) , op4 varchar(200) , correct number);
+desc cpp;
+desc sql;
+insert into sql values(1,'You are using the backup scheduler in Enterprise Manager (EM) to schedule a backup of your database.
+Which type of script does the backup scheduler generate?
+','SQL script','PL/SQL script','Operating System (OS) script','Recovery Manager (RMAN) script',4);
+insert into sql values(2,'You executed the following command to export the EMPLOYEES table from a remote machine:
+$ EXPDP hr/hr@data.us.oracle.com
+DUMPFILE=my_dir:exp_hr.log
+LOGFILE=data_pump_dir:log_hr.log
+TABLES=employees
+What would be the outcome of this command?
+','The command would execute successfully and the export dump file would be created in the destination of the directory object MY_DIR.','The command would execute successfully. But log file would not be created as DATA_PUMP_DIR directory is only accessible to user with SYSDBA privilege.','The command fails with an error because DATA_PUMP_DIR directory have higher precedence over the per-file directory.','The command fails with an error because no absolute path is specified for log file and dumpfile',1);
+
+insert into sql values(3,'Which step do you need to perform to enable a user with the SYSDBA privilege to log in as SYSDBA in iSQL*Plus?','The user must be granted the database administrator (DBA) privilege','The user must be listed in the password file for the authentication.','No special setup is needed for the user to connect as SYSDBA in iSQL*Plus.','Set up a user in the Oracle Application Server Containers for J2EE (OC4J) user manager, and grant the webDba role to the user',4);
+
+insert into sql values(4,'You want the user APP_DBA to administer the Oracle database from a remote machine. APP_DBA is granted the SYSDBA privilege to perform administrative tasks on the database. Which file is used by the Oracle database server to authenticate APP_DBA?','control file','password file','listener controller file','control file and password file',2);
+
+insert into sql values(5,'Which is the memory area that is created when a dedicated server process is started, and contains data and control information for that server process?','SGA','PGA','Shared Pool','Streams Pool',2);
+
+insert into sql values(6,'You find that the database performance degrades while you backup the PROD database using Recovery Manager (RMAN). The PROD database is running in shared server mode. The database instance is currently using 60% of total operating system memory. You suspect the shared pool fragmentation to be the reason.
+Which action would you consider to overcome the performance degradation?
+','Configure Java Pool to cache the java objects.','Increase Shared Pool size to cache more PL/SQL objects.','Increase Database Buffer Cache size to increase cache hits.','Configure Large Pool to be used by RMAN and shared server.',4);
+
+insert into sql values(7,'You execute the following command to audit the database activities:
+SQL> AUDIT DROP ANY TABLE BY scott BY SESSION WHENEVER SUCCESSFUL;
+What is the effect of this command?
+','One audit record is created for the whole session if user SCOTT successfully drops one or more tables in his session','One audit record is created for every session when any user successfully drops a table owned by SCOTT.','One audit record is created for each successful DROP TABLE command executed by any user to drop tables owned by SCOTT.','One audit record is generated for the session when SCOTT grants the DROP ANY TABLE privilege to other users in his session.',1);
+
+insert into sql values(8,'The SAVE_AMT column in the ACCOUNTS table contains the balance details of customers in a bank.
+As part of the year-end tax and interest calculation process, all the rows in the table need to be accessed.
+The bank authorities want to track access to the rows containing balance amounts exceeding $200,000, and then send an alert message to the administrator.
+Which method would you suggest to the bank for achieving this task?
+','implementing value-based auditing by using triggers','implementing fine-grained auditing with audit condition and event handler','. performing standard database auditing to audit object privileges by setting the AUDIT_TRAIL parameter to EXTENDED',' performing standard database auditing to audit SQL statements with granularity level set to ACCESS',2);
+
+insert into sql values(9,'You have been recently hired as a database administrator. Your senior manager asks you to study the production database server and submit a report on the settings done by the previous DBA. While observing the server settings, you find that the following parameter has been set in the parameter file of the database:
+REMOTE_OS_AUTHENT = TRUE
+What could have been the reason to set this parameter as TRUE?
+','to enable operating system authentication for a remote client','. to restrict the scope of administration to identical operating systems','to allow the start up and shut down of the database from a remote client','to enable the administration of the operating system from a remote client',1);
+
+insert into sql values(10,'Which naming method uses the tnsnames.ora file to store the connect descriptor used by the client while connecting to the database instance from a remote machine?','host naming method','local naming method','external naming method','directory naming method',2);
+
+insert into sql values(11,'Your tnsnames.ora file has the following entry for the service alias ORCL:
+ORCL =
+( DESCRIPTION =
+(ADDRESS = (PROTOCOL = TCP)(HOST = 10.156.24.216)(PORT = 1521))
+(CONNECT_DATA =
+(SERVER = DEDICATED)
+(SERVICE_NAME = orcl.oracle.com)
+)
+)
+The TNSPING command executes successfully when tested with ORCL but you are not able to connect to the database instance with the following command:
+SQL> CONNECT scott/tiger@orcl
+What could be the reason for this?
+','The listener is not running at the server.','The TNS_ADMIN environmental variable is set to a wrong value.','The orcl.oracle.com database service is not registered with the listener.','The DEFAULT_DOMAIN parameter is set to a wrong value in the SQLNET.ORA file.',3);
+
+insert into sql values(12,'Your database is open and users are connected using the LISTENER listener. The new DBA of the system stops the listener by using the following command:
+LSNRCTL> STOP
+What would happen to the sessions that are presently connected to the database instance?
+','The sessions are able to perform only queries.','The sessions are not affected and continue to function normally.','The active transactions are rolled back and the sessions get terminated.','The sessions are not allowed to perform any operations till the listener is started',2);
+
+insert into sql values(13,'You need to extract details of those products in the SALES table where the PROD_ID column contains the string ‘_D123’.
+Which WHERE clause could be used in the SELECT statement to get the required output?
+','WHERE prod_id LIKE ‘%_D123%’ ESCAPE ‘_’','WHERE prod_id LIKE ‘%\_D123%’ ESCAPE ‘\’','WHERE prod_id LIKE ‘%_D123%’ ESCAPE ‘%_’','WHERE prod_id LIKE ‘%\_D123%’ ESCAPE ‘\_’',2);
+
+insert into sql values(14,'Examine the structure of the SHIPMENTS table:
+name Null Type
+PO_ID NOT NULL NUMBER(3)
+PO_DATE NOT NULL DATE
+SHIPMENT_DATE NOT NULL DATE
+SHIPMENT_MODE VARCHAR2(30)
+SHIPMENT_COST NUMBER(8,2)
+You want to generate a report that displays the PO_ID and the penalty amount to be paid if the SHIPMENT_DATE is later than one month from the PO_DATE. The penalty is $20 per day.
+Evaluate the following two queries:
+SQL> SELECT po_id, CASE
+WHEN MONTHS_BETWEEN (shipment_date,po_date)>1 THEN
+TO_CHAR((shipment_date – po_date) * 20) ELSE ‘No Penalty’ END PENALTY
+FROM shipments;
+SQL>SELECT po_id, DECODE
+(MONTHS_BETWEEN (po_date,shipment_date)>1,
+TO_CHAR((shipment_date – po_date) * 20), ‘No Penalty’) PENALTY
+FROM shipments;
+Which statement is true regarding the above commands?
+','Both execute successfully and give correct results.','Only the first query executes successfully but gives a wrong result.','Only the first query executes successfully and gives the correct result','Only the second query executes successfully but gives a wrong result.',3);
+
+insert into sql values(15,'Which statement is true regarding the INTERSECT operator?',' It ignores NULL values.','Reversing the order of the intersected tables alters the result.','The names of columns in all SELECT statements must be identical','The number of columns and data types must be identical for all SELECT statements in the query.',4);
+
+insert into sql values(16,'You need to produce a report where each customer’s credit limit has been incremented by $1000. In the output, t he customer’s last name should have the heading Name and the incremented credit limit should be labeled New Credit Limit. The column headings should have only the first letter of each word in uppercase .
+Which statement would accomplish this requirement?
+','SELECT cust_last_name Name, cust_credit_limit + 1000 “New Credit Limit” FROM customers;','SELECT cust_last_name AS Name, cust_credit_limit + 1000 AS New Credit Limit FROM customers;','SELECT cust_last_name AS “Name”, cust_credit_limit + 1000 AS “New Credit Limit” FROM customers','SELECT INITCAP(cust_last_name) “Name”, cust_credit_limit + 1000 INITCAP(“NEW CREDIT LIMIT”) FROM customers;',3);
+
+insert into sql values(17,'Using the CUSTOMERS table, you need to generate a report that shows 50% of each credit amount in each income level. The report should NOT show any repeated credit amounts in each income level.
+Which query would give the required result?
+','SELECT cust_income_level, DISTINCT cust_credit_limit * 0.50 AS “50% Credit Limit” FROM customers;','SELECT DISTINCT cust_income_level, DISTINCT cust_credit_limit * 0.50 AS “50% Credit Limit” FROM customers;','SELECT DISTINCT cust_income_level ‘ ‘ cust_credit_limit * 0.50 AS “50% Credit Limit” FROM customers;','SELECT cust_income_level ‘ ‘ cust_credit_limit * 0.50 AS “50% Credit Limit” FROM customers;',3);
+
+insert into sql values(18,'Evaluate the following query:
+SQL> SELECT promo_name q'{‘s start date was }’ promo_begin_date
+AS “Promotion Launches”
+FROM promotions;
+What would be the outcome of the above query?
+','It produces an error because flower braces have been used.','. It produces an error because the data types are not matching.','It executes successfully and introduces an ‘s at the end of each promo_name in the output.','. It executes successfully and displays the literal ” {‘s start date was } ” for each row in the output.',3);
+
+insert into sql values(19,'Examine the structure of the PROMOTIONS table:
+name Null Type
+PROMO_ID NOT NULL NUMBER(6)
+PROMO_NAME NOT NULL VARCHAR2(30)
+PROMO_CATEGORY NOT NULL VARCHAR2(30)
+PROMO_COST NOT NULL NUMBER(10,2)
+The management wants to see a report of unique promotion costs in each promotion category.
+Which query would achieve the required result?
+','SELECT DISTINCT promo_cost, promo_category FROM promotions;','SELECT promo_category, DISTINCT promo_cost FROM promotions;','SELECT DISTINCT promo_cost, DISTINCT promo_category FROM promotions','SELECT DISTINCT promo_category, promo_cost FROM promotions ORDER BY 1;',4);
+
+insert into sql values(20,'Evaluate the following query:
+SELECT INTERVAL ‘300’ MONTH,
+INTERVAL ’54-2′ YEAR TO MONTH,
+INTERVAL ’11:12:10.1234567′ HOUR TO SECOND
+FROM dual;
+What is the correct output of the above query?
+','+25-00 , +54-02, +00 11:12:10.123457','+00-300, +54-02, +00 11:12:10.123457','+25-00 , +00-650, +00 11:12:10.123457','+00-300 , +00-650, +00 11:12:10.123457',1);
+
+insert into sql values(21,'What does the FORCE option for creating a view do?','creates a view with constraints','creates a view even if the underlying parent table has constraints','creates a view in another schema even if you don’t have privileges','creates a view regardless of whether or not the base tables exist',4);
+
+insert into sql values(22,'The STUDENT_GRADES table has these columns:
+STUDENT_ID NUMBER(12)
+SEMESTER_END DATE
+GPA NUMBER(4,3)
+The registrar requested a report listing the students’ grade point averages (GPA) sorted from highest grade point average to lowest.
+Which statement produces a report that displays the student ID and GPA in the sorted order requested by the registrar?
+','SELECT student_id, gpa FROM student_grades ORDER BY gpa ASC;','SELECT student_id, gpa FROM student_grades SORT ORDER BY gpa ASC;','SELECT student_id, gpa FROM student_grades SORT ORDER BY gpa;','SELECT student_id, gpa FROM student_grades ORDER BY gpa DESC;',4);
+
+insert into sql values(23,'The CUSTOMERS table has these columns:
+CUSTOMER_ID NUMBER(4) NOT NULL
+CUSTOMER_NAME VARCHAR2(100) NOT NULL
+STREET_ADDRESS VARCHAR2(150)
+CITY_ADDRESS VARCHAR2(50)
+STATE_ADDRESS VARCHAR2(50)
+PROVINCE_ADDRESS VARCHAR2(50)
+COUNTRY_ADDRESS VARCHAR2(50)
+POSTAL_CODE VARCHAR2(12)
+CUSTOMER_PHONE VARCHAR2(20)
+The CUSTOMER_ID column is the primary key for the table.
+You need to determine how dispersed your customer base is. Which expression finds the number of different countries represented in the CUSTOMERS table?
+','COUNT(UPPER(country_address))','COUNT(DIFF(UPPER(country_address)))','COUNT(UNIQUE(UPPER(country_address)))','COUNT(DISTINCT (UPPER(country_address)))',4);
+
+insert into sql values(24,'A SELECT statement can be used to perform these three functions:
+1. Choose rows from a table.
+2. Choose columns from a table.
+3. Bring together data that is stored in different tables by creating a link between them.
+Which set of keywords describes these capabilities?
+','difference, projection, join','selection, projection, join','selection, intersection, join','intersection, projection, join',2);
+
+insert into sql values(25,'Evaluate this SQL statement:
+SELECT e.EMPLOYEE_ID,e.LAST_NAME,e.DEPARTMENT_ID, d.DEPARTMENT_NAME
+FROM EMPLOYEES e, DEPARTMENTS d
+WHERE e.DEPARTMENT_ID = d.DEPARTMENT_ID;
+In the statement, which capabilities of a SELECT statement are performed?
+','selection, projection, join','difference, projection, join','selection, intersection, join','intersection, projection, join',1);
+
+insert into sql values(26,'Evaluate this SQL statement:
+SELECT e.employee_id, (.15* e.salary) + (.5 * e.commission_pct) + (s.sales_amount * (.35 * e.bonus)) AS CALC_VALUE FROM employees e, sales s
+WHERE e.employee_id = s.emp_id;
+What will happen if you remove all the parentheses from the calculation?
+','The value displayed in the CALC_VALUE column will be lower.','The value displayed in the CALC_VALUE column will be higher.','There will be no difference in the value displayed in the CALC_VALUE column.','An error will be reported.',3);
+
+insert into sql values(27,'Which SQL statement generates the alias Annual Salary for the calculated column SALARY*12?','SELECT ename, salary*12 ‘Annual Salary’ FROM employees;','SELECT ename, salary*12 “Annual Salary” FROM employees;','SELECT ename, salary*12 AS Annual Salary FROM employees','SELECT ename, salary*12 AS INITCAP(“ANNUAL SALARY”) FROM employees',2);
+
+insert into sql values(28,'Evaluate this SQL statement:
+SELECT ename, sal, 12*sal+100 FROM emp;
+The SAL column stores the monthly salary of the employee. Which change must be made to the above syntax to calculate the annual compensation as “monthly salary plus a monthly bonus of $100, multiplied by 12”?
+','No change is required to achieve the desired results.','SELECT ename, sal, 12*(sal+100) FROM emp;','SELECT ename, sal, (12*sal)+100 FROM emp;','SELECT ename, sal+100,*12 FROM emp;',2);
+
+insert into sql values(29,'The CUSTOMERS table has these columns:
+CUSTOMER_ID NUMBER(4) NOT NULL
+CUSTOMER_NAME VARCHAR2(100) NOT NULL
+CUSTOMER_ADDRESS VARCHAR2(150)
+CUSTOMER_PHONE VARCHAR2(20)
+You need to produce output that states “Dear Customer customer_name, “.
+The customer_name data values come from the CUSTOMER_NAME column in the CUSTOMERS table.
+Which statement produces this output?
+','SELECT dear customer, customer_name,','SELECT “Dear Customer”, customer_name || ‘,’ FROM customers;','SELECT ‘Dear Customer ‘ || customer_name ‘,’ FROM customers;','SELECT ‘Dear Customer ‘ || customer_name || ‘,’ FROM customers',4);
+
+insert into sql values(30,'Which is an iSQL*Plus command?','INSERT','UPDATE','SELECT','DESCRIBE',4);
+
+
+insert into sql values(31,'Which view should a user query to display the columns associated with the constraints on a table owned by the user?','USER_CONSTRAINTS','USER_OBJECTS','ALL_CONSTRAINTS','USER_CONS_COLUMNS',4);

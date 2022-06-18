@@ -1,0 +1,63 @@
+create table cpp(qid number  primary key,ques varchar(900), op1 varchar(200), op2 varchar(200), op3 varchar(200) , op4 varchar(200) , correct number);
+insert into cpp values(1,' If the class name is X, what is the type of its “this” pointer (in a nonstatic, non-const member function)? ',' const X* const ',' X* const ','X*','X&',4);
+
+insert into cpp values(2,' Which classes allow primitive types to be accessed as objects? ','Storage','Virtual','Friend','Wrapper',2);
+
+insert into cpp values(3,' When is std::bad_alloc exception thrown? ','When new operator cannot allocate memory ','When alloc function fails ','When type requested for new operation is considered bad, this exception is thrown ',' When delete operator cannot delete teh allocated (corrupted) object ',4);
+
+insert into cpp values(4,'Which one of the following is not a fundamental data type in C++','float ','string ','int','wchar_t',1);
+
+insert into cpp values(5,'Which of the following is a valid destructor of the class name "Country"','int ~Country() ','void Country() ','int ~Country(Country obj)','void ~Country() ',2);
+
+insert into cpp values(6,'Which of the following correctly describes C++ language? ','Statically typed language ','Dynamically typed language','Both Statically and dynamically typed language ','Type-less language ',4);
+
+insert into cpp values(7,'Which of the following keyword supports dynamic method resolution? ','abstract ','Virtual ','Dynamic ','Typeid ',1);
+
+insert into cpp values(8,'Which of the following is the most preferred way of throwing and handling exceptions?','Throw by value and catch by reference',' Throw by reference and catch by reference.',' Throw by value and catch by value','Throw the pointer value and provide catch for teh pointer type.',2);
+
+insert into cpp values(9,'Which of the following is not true about preprocessor directives','They begin with a hash symbol ','They are processed by a preprocessor','They form an integral part of the code ','They have to end with a semi colon ',1);
+
+insert into cpp values(10,'What is wrong? while( (i < 10) && (i > 24))','the logical operator && cannot be used in a test condition','the while loop is an exit-condition loop','the test condition is always false','the test condition is always true',4);
+
+insert into cpp values(11,'A continue statement causes execution to skip to','the return 0; statement','the first statement after the loop ','the statement following the continue statement ',' the next iteration of the loop ',3);
+
+insert into cpp values(12,'What is wrong? (x = 4 && y = 5) ? (a = 5) ; (b = 6); ','the question mark should be an equal sign','the first semicolon should be a colon ',' there are too many variables in the statement','the conditional operator is only used with apstrings ',4);
+
+insert into cpp values(13,'What is wrong? for (int k = 2, k <=12, k++)','the increment should always be ++k ','the variable must always be the letter i when using a for loop ','there should be a semicolon at the end of the statement','the commas should be semicolons',2);
+
+insert into cpp values(14,'Which of the following is not recommended in a header file? ',' Type definitions (typedefs) ','Class definitions ','Function definitions','Template definitions ',4);
+
+insert into cpp values(15,'Which of the STL containers store the elements contiguously (in adjecent memory locations)? ','std::vector ','std::list','std::map','std::set',3);
+
+insert into cpp values(16,' Which of the following is not a standard exception built in C++.','std::bad_creat',' std::bad_alloc','std::bad_cast ','std::bad_typeid ',1);
+
+insert into cpp values(17,'What does STL stand for?',' Simple Template Library ','Standard Template Library','Static Type Library ','Single Type-based Library ',1);
+
+insert into cpp values(18,'Which one of the following is not a valid reserved keyword in C++','Explicit ','Public ','Implicit ','Private ',3);
+
+insert into cpp values(19,'Each pass through a loop is called a/an ','enumeration ','iteration ','culmination ','pass through ',3)
+
+insert into cpp values(20,'Which of the following relationship is known as inheritance relationship?',' ‘has-a’ relationship','is-a’ relationship','association relationship','none of the above ',1);
+
+insert into cpp values(21,' Which of the following is not a component of file system ','Access method ','Auxiliary storage management ','Free integrity mechanism ','None of the above ',3);
+
+insert into cpp values(22,'Seek time is ','time taken to retrieve a dta','Time taken by read/write head mechanism to position itself over appropriate cylinder ','Time taken by appropriate sector to come under read/write','None of the above ',4);
+
+insert into cpp values(23,'‘Prime area’ in context of file system is defined as ','It is memory area created by operating system ','It is an area into which data records are written',' It is the main area of a web page',' None of the above',2);
+
+insert into cpp values(24,'*ptr++ is equivalenet to: ','ptr++','*ptr ','++*ptr','None of the above',3);
+
+insert into cpp values(25,' Originally ‘C’ was developed as: ','System programming language ','General purpose language','Data processing language','None of above',3);
+
+insert into cpp values(26,'An inverted file ','An inverted file ','A file which stores opposite records ',' A file which stores information about records of a system',' None of above ',2);
+
+insert into cpp values(27,'Which of the following is not a file operation: ','Repositioning ','Truncating ','Appending ','None of above',1);
+
+insert into cpp values(28,'Which looping process checks the test condition at the end of the loop? ','for ','while ','do-while ','no looping process checks the test condition at the end',1);
+
+insert into cpp values(29,'The default access level assigned to members of a class is ___________','Private ','Public ','Protected','Needs to be assigned',3);
+
+insert into cpp values(30,'Which of the following language is not supported by C++? ','Exception Handling ','Reflection ',' Operator Overloading','Namespaces ',4);
+
+
+select * from cpp;
